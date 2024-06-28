@@ -70,12 +70,17 @@ void Triangle::setSides(double side_a, double side_b, double side_c) {
 }
 
 void Triangle::setAngles(double angle_A, double angle_B, double angle_C) {
+    if (angle_A + angle_B + angle_C != 180.0) {
+        std::cerr << "Ошибка: сумма углов должна быть равна 180 градусам.\n";
+        return;
+    }
     A = angle_A;
     B = angle_B;
     C = angle_C;
     resetCalculations();
     calculatePropertiesFromAngles();
 }
+
 
 void Triangle::setSideAndTwoAngles(double side, double angle1, double angle2) {
     a = side;

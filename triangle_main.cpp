@@ -47,13 +47,21 @@ int main() {
             }
             case 3: {
                 double A, B, C;
-                std::cout << "Введите угол A (в градусах): ";
-                std::cin >> A;
-                std::cout << "Введите угол B (в градусах): ";
-                std::cin >> B;
-                std::cout << "Введите угол C (в градусах): ";
-                std::cin >> C;
-                triangle.setAngles(A, B, C);
+                bool validAngles = false;
+                while (!validAngles) {
+                    std::cout << "Введите угол A (в градусах): ";
+                    std::cin >> A;
+                    std::cout << "Введите угол B (в градусах): ";
+                    std::cin >> B;
+                    std::cout << "Введите угол C (в градусах): ";
+                    std::cin >> C;
+                    if (A + B + C == 180.0) {
+                        validAngles = true;
+                        triangle.setAngles(A, B, C);
+                    } else {
+                        std::cout << "Ошибка: сумма углов должна быть равна 180 градусам. Попробуйте снова.\n";
+                    }
+                }
                 break;
             }
             case 4: {
