@@ -32,6 +32,10 @@ public:
     double getArea();
     double getPerimeter();
     void displayProperties() const;
+
+    bool isValidTriangleBySides(double side_a, double side_b, double side_c) const;
+    bool isValidTriangleByAngles(double angle_A, double angle_B, double angle_C) const;
+    bool isValidAngle(double angle) const;
 };
 
 void menu();
