@@ -1,25 +1,34 @@
-#ifndef CIRC_GEOMETRY_H
-#define CIRC_GEOMETRY_H
+#ifndef CIRCLE_H
+#define CIRCLE_H
 
-#ifdef _WIN64
-#ifdef CIRC_GEOMETRY_EXPORTS
-#define CIRC_GEOMETRY_API __declspec(dllexport)
-#else
-#define CIRC_GEOMETRY_API __declspec(dllimport)
-#endif
-#else
-#define CIRC_GEOMETRY_API
-#endif
-
-class CIRC_GEOMETRY_API Circle {
+class Circle {
 public:
+    // Конструкторы
     Circle(double radius);
-    double calculatePerimeter() const;
-    double calculateArea() const;
+    Circle(double diameter, bool isDiameter);
+    Circle(double circumference, bool isCircumference, bool);
+
+    // Методы для получения параметров
+    double getRadius() const;
+    double getDiameter() const;
+    double getCircumference() const;
+    double getArea() const;
+
+    // Методы для изменения параметров
+    void setRadius(double radius);
+    void setDiameter(double diameter);
+    void setCircumference(double circumference);
+
+    // Методы для проверки пересечений и включений
+    bool intersects(const Circle& other) const;
+    bool contains(double x, double y) const;
 
 private:
     double radius;
-    static constexpr double PI = 3.14159265358979323846;
+    void calculateFromRadius(double r);
 };
 
-#endif // CIRC_GEOMETRY_H
+// Функция для отображения меню и выполнения соответствующих действий
+void displayMenu();
+
+#endif
