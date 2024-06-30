@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libtriangle_library.a CMakeFiles/triangle_library.dir/triangle.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libtriangle_library.a

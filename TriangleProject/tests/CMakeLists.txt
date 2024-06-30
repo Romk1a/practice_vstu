@@ -1,25 +1,12 @@
-cmake_minimum_required(VERSION 3.10)
-project(tests)
+# Указываем исходный каталог и каталог сборки для GoogleTest
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../googletest ${CMAKE_CURRENT_BINARY_DIR}/googletest-build)
 
-set(CMAKE_CXX_STANDARD 11)
+# Создание исполняемого файла тестов
+add_executable(test_triangle test_triangle.cpp)
 
-# Добавление исполняемого файла для модульных тестов
-add_executable(tests
-    test/test_triangle.cpp
-)
+# Добавление зависимостей
+target_link_libraries(test_triangle gtest gtest_main triangle_library)
 
-# Добавление Google Test в качестве сабмодуля
-add_subdirectory(libs/googletest)
-
-# Линковка с библиотекой Google Test и основным проектом
-target_link_libraries(tests PRIVATE gtest gtest_main)
-target_link_libraries(tests PRIVATE TriangleProject)
-
-# Добавление директории с заголовочными файлами для модульных тестов
-target_include_directories(tests PRIVATE 
-    include  # заголовочные файлы основного проекта
-    libs/googletest/googletest/include  # заголовочные файлы Google Test
-)
-
-# Настройка сборки и дополнительных параметров для модульных тестов
-# Например, линковка необходимых библиотек или добавление опций компилятора
+# Добавление тестов
+include(GoogleTest)
+gtest_discover_tests(test_triangle)

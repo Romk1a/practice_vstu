@@ -1,0 +1,5 @@
+if(EXISTS "/Users/romk1a/Documents/GitHub/practice_vstu/TriangleProject/build/tests/test_triangle[1]_tests.cmake")
+  include("/Users/romk1a/Documents/GitHub/practice_vstu/TriangleProject/build/tests/test_triangle[1]_tests.cmake")
+else()
+  add_test(test_triangle_NOT_BUILT test_triangle_NOT_BUILT)
+endif()
