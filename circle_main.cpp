@@ -2,6 +2,6 @@
 
 int main() {
     setlocale(LC_ALL, "rus");
-    displayMenu();
+    userMenu();
     return 0;
 }

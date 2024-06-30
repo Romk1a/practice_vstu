@@ -1,34 +1,46 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
 
+#include <string>
+
 class Circle {
-public:
-    // Конструкторы
-    Circle(double radius);
-    Circle(double diameter, bool isDiameter);
-    Circle(double circumference, bool isCircumference, bool);
-
-    // Методы для получения параметров
-    double getRadius() const;
-    double getDiameter() const;
-    double getCircumference() const;
-    double getArea() const;
-
-    // Методы для изменения параметров
-    void setRadius(double radius);
-    void setDiameter(double diameter);
-    void setCircumference(double circumference);
-
-    // Методы для проверки пересечений и включений
-    bool intersects(const Circle& other) const;
-    bool contains(double x, double y) const;
-
 private:
     double radius;
-    void calculateFromRadius(double r);
+
+public:
+    // Конструктор по радиусу
+    Circle(double radius);
+    // Конструктор по диаметру
+    Circle(double diameter, bool isDiameter);
+    // Конструктор по длине окружности
+    Circle(double circumference, bool isCircumference, bool unused);
+
+    // Получение радиуса
+    double getRadius() const;
+    // Установка радиуса
+    void setRadius(double radius);
+
+    // Получение диаметра
+    double getDiameter() const;
+    // Установка диаметра
+    void setDiameter(double diameter);
+
+    // Получение длины окружности
+    double getCircumference() const;
+    // Установка длины окружности
+    void setCircumference(double circumference);
+
+    // Получение площади
+    double getArea() const;
+
+    // Проверка пересечения с другой окружностью
+    bool intersects(const Circle& other) const;
+    // Проверка на вхождение точки
+    bool contains(double x, double y) const;
 };
 
-// Функция для отображения меню и выполнения соответствующих действий
 void displayMenu();
+double getPositiveDouble(const std::string& prompt);
+void userMenu();
 
-#endif
+#endif // CIRCLE_H
