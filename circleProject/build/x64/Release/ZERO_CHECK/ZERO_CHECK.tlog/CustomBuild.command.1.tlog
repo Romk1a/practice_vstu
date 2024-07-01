@@ -1,0 +1,10 @@
+^C:\USERS\ПОЛЬЗОВАТЕЛЬ\ONEDRIVE\ДОКУМЕНТЫ\GITHUB\PRACTIC_VSTU\CIRCLEPROJECT\BUILD\CMAKEFILES\F4CF964ADFD7F7D8257332572B846F04\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Пользователь/OneDrive/Документы/GitHub/practic_vstu/circleProject -BC:/Users/Пользователь/OneDrive/Документы/GitHub/practic_vstu/circleProject/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Пользователь/OneDrive/Документы/GitHub/practic_vstu/circleProject/build/CircleProject.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
