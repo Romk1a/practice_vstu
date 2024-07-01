@@ -1,8 +1,5 @@
-# Укажите исходные файлы
-set(SOURCES circle.cpp)
+# Р”РѕР±Р°РІР»РµРЅРёРµ РІСЃРµС… cpp С„Р°Р№Р»РѕРІ РёР· С‚РµРєСѓС‰РµРіРѕ РєР°С‚Р°Р»РѕРіР° РІ Р±РёР±Р»РёРѕС‚РµРєСѓ
+add_library(circle_library circle.cpp circle_h.h)
 
-# Создайте библиотеку
-add_library(CircleLibrary ${SOURCES})
-
-# Укажите заголовочные файлы
-target_include_directories(CircleLibrary PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+# РЈРєР°Р·Р°РЅРёРµ РїСѓС‚Рё Рє Р·Р°РіРѕР»РѕРІРѕС‡РЅС‹Рј С„Р°Р№Р»Р°Рј РґР»СЏ СЌС‚РѕР№ Р±РёР±Р»РёРѕС‚РµРєРё
+target_include_directories(circle_library PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

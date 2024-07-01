@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libcircle_library.a CMakeFiles/circle_library.dir/circle.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libcircle_library.a

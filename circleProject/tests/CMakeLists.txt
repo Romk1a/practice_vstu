@@ -1,17 +1,12 @@
-# Укажите файлы тестов
-set(TEST_SOURCES test_circle.cpp)
+# РЈРєР°Р·С‹РІР°РµРј РёСЃС…РѕРґРЅС‹Р№ РєР°С‚Р°Р»РѕРі Рё РєР°С‚Р°Р»РѕРі СЃР±РѕСЂРєРё РґР»СЏ GoogleTest
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../../googletest ${CMAKE_CURRENT_BINARY_DIR}/googletest-build)
 
-# Создайте исполняемый файл для тестов
-add_executable(RunTests ${TEST_SOURCES})
+# РЎРѕР·РґР°РЅРёРµ РёСЃРїРѕР»РЅСЏРµРјРѕРіРѕ С„Р°Р№Р»Р° С‚РµСЃС‚РѕРІ
+add_executable(test_circle test_circle.cpp)
 
-# Подключите библиотеку Google Test
-target_link_libraries(RunTests gtest gtest_main)
+# Р”РѕР±Р°РІР»РµРЅРёРµ Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№
+target_link_libraries(test_circle gtest gtest_main circle_library)
 
-# Подключите вашу библиотеку
-target_link_libraries(RunTests CircleLibrary)
-
-# Укажите пути к заголовочным файлам
-target_include_directories(RunTests PUBLIC ../src)
-
-# Добавьте команду для запуска тестов
-add_test(NAME RunTests COMMAND RunTests)
+# Р”РѕР±Р°РІР»РµРЅРёРµ С‚РµСЃС‚РѕРІ
+include(GoogleTest)
+gtest_discover_tests(test_circle)

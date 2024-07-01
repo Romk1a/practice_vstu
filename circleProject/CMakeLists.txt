@@ -1,11 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
-project(сircleProject)
+project(circleProject)
 
-# Укажите путь к Google Test
-add_subdirectory(../googletest googletest-build)
+# РЈСЃС‚Р°РЅРѕРІРєР° СЃС‚Р°РЅРґР°СЂС‚Р° СЏР·С‹РєР°
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Добавьте каталог с исходным кодом
+# Р”РѕР±Р°РІР»РµРЅРёРµ РїРѕРґРєР°С‚Р°Р»РѕРіР° РґР»СЏ РёСЃС…РѕРґРЅС‹С… С„Р°Р№Р»РѕРІ Р±РёР±Р»РёРѕС‚РµРєРё
 add_subdirectory(src)
 
-# Добавьте каталог с тестами
+# Р”РѕР±Р°РІР»РµРЅРёРµ РїРѕРґРєР°С‚Р°Р»РѕРіР° РґР»СЏ С‚РµСЃС‚РѕРІ
 add_subdirectory(tests)
