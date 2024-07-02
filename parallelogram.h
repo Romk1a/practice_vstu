@@ -5,7 +5,7 @@ class Parallelogram {
 public:
     Parallelogram(double a, double b, double alpha);
     Parallelogram(double a, double b, double c, double d);
-    Parallelogram(double alpha, double beta, double a, double b);
+    Parallelogram(double alphaRad, double betaRad, double a, double b);
 
     double getSideA() const;
     double getSideB() const;
