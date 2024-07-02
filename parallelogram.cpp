@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <cmath>
-#include "Parallelogram.h"
+#include "parallelogram.h"
 
 Parallelogram::Parallelogram(double a, double b, double alpha) {
     this->a = a;
