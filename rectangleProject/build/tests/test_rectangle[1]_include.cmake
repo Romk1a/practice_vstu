@@ -1,0 +1,5 @@
+if(EXISTS "/Users/romk1a/Documents/GitHub/practice_vstu/rectangleProject/build/tests/test_rectangle[1]_tests.cmake")
+  include("/Users/romk1a/Documents/GitHub/practice_vstu/rectangleProject/build/tests/test_rectangle[1]_tests.cmake")
+else()
+  add_test(test_rectangle_NOT_BUILT test_rectangle_NOT_BUILT)
+endif()
