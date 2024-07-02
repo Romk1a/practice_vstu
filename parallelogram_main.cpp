@@ -1,4 +1,4 @@
-#include "parallelogram.h"
+#include "parallelogram.cpp"
 
 int main() {
     showMenu();

@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libparallelogram_library.a CMakeFiles/parallelogram_library.dir/parallelogram.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libparallelogram_library.a

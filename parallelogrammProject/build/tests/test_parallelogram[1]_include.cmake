@@ -1,0 +1,5 @@
+if(EXISTS "/Users/romk1a/Documents/GitHub/practice_vstu/parallelogrammProject/build/tests/test_parallelogram[1]_tests.cmake")
+  include("/Users/romk1a/Documents/GitHub/practice_vstu/parallelogrammProject/build/tests/test_parallelogram[1]_tests.cmake")
+else()
+  add_test(test_parallelogram_NOT_BUILT test_parallelogram_NOT_BUILT)
+endif()
