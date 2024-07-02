@@ -1,4 +1,4 @@
-#include <iostream>
+п»ї#include <iostream>
 #include <cmath>
 #include "Parallelogram.h"
 
@@ -35,7 +35,6 @@ Parallelogram::Parallelogram(double alpha, double beta, double a, double b) {
     this->delta = this->alpha;
 }
 
-// Остальные методы класса Parallelogram...
 
 void showMenu() {
     int choice;
@@ -54,40 +53,46 @@ void showMenu() {
         case 1:
             std::cout << "Enter side A, side B, and angle A (in degrees): ";
             std::cin >> a >> b >> alpha;
-            Parallelogram p1(a, b, alpha);
-            std::cout << "Parallelogram characteristics:\n";
-            std::cout << "Side A: " << p1.getSideA() << "\n";
-            std::cout << "Side B: " << p1.getSideB() << "\n";
-            std::cout << "Angle A: " << p1.getAngleA() << "\n";
-            std::cout << "Angle B: " << p1.getAngleB() << "\n";
-            std::cout << "Area: " << p1.calculateArea() << "\n";
-            std::cout << "Perimeter: " << p1.calculatePerimeter() << "\n";
+            {
+                Parallelogram p1(a, b, alpha);
+                std::cout << "Parallelogram characteristics:\n";
+                std::cout << "Side A: " << p1.getSideA() << "\n";
+                std::cout << "Side B: " << p1.getSideB() << "\n";
+                std::cout << "Angle A: " << p1.getAngleA() << "\n";
+                std::cout << "Angle B: " << p1.getAngleB() << "\n";
+                std::cout << "Area: " << p1.calculateArea() << "\n";
+                std::cout << "Perimeter: " << p1.calculatePerimeter() << "\n";
+            }
             break;
         case 2:
             std::cout << "Enter side A, side B, side C, and side D: ";
             std::cin >> a >> b >> c >> d;
-            Parallelogram p2(a, b, c, d);
-            std::cout << "Parallelogram characteristics:\n";
-            std::cout << "Side A: " << p2.getSideA() << "\n";
-            std::cout << "Side B: " << p2.getSideB() << "\n";
-            std::cout << "Side C: " << p2.getSideC() << "\n";
-            std::cout << "Side D: " << p2.getSideD() << "\n";
-            std::cout << "Angle A: " << p2.getAngleA() << "\n";
-            std::cout << "Angle B: " << p2.getAngleB() << "\n";
-            std::cout << "Area: " << p2.calculateArea() << "\n";
-            std::cout << "Perimeter: " << p2.calculatePerimeter() << "\n";
+            {
+                Parallelogram p2(a, b, c, d);
+                std::cout << "Parallelogram characteristics:\n";
+                std::cout << "Side A: " << p2.getSideA() << "\n";
+                std::cout << "Side B: " << p2.getSideB() << "\n";
+                std::cout << "Side C: " << p2.getSideC() << "\n";
+                std::cout << "Side D: " << p2.getSideD() << "\n";
+                std::cout << "Angle A: " << p2.getAngleA() << "\n";
+                std::cout << "Angle B: " << p2.getAngleB() << "\n";
+                std::cout << "Area: " << p2.calculateArea() << "\n";
+                std::cout << "Perimeter: " << p2.calculatePerimeter() << "\n";
+            }
             break;
         case 3:
             std::cout << "Enter angle A (in degrees), angle B (in degrees), side A, and side B: ";
             std::cin >> alpha >> beta >> a >> b;
-            Parallelogram p3(alpha, beta, a, b);
-            std::cout << "Parallelogram characteristics:\n";
-            std::cout << "Side A: " << p3.getSideA() << "\n";
-            std::cout << "Side B: " << p3.getSideB() << "\n";
-            std::cout << "Angle A: " << p3.getAngleA() << "\n";
-            std::cout << "Angle B: " << p3.getAngleB() << "\n";
-            std::cout << "Area: " << p3.calculateArea() << "\n";
-            std::cout << "Perimeter: " << p3.calculatePerimeter() << "\n";
+            {
+                Parallelogram p3(alpha, beta, a, b);
+                std::cout << "Parallelogram characteristics:\n";
+                std::cout << "Side A: " << p3.getSideA() << "\n";
+                std::cout << "Side B: " << p3.getSideB() << "\n";
+                std::cout << "Angle A: " << p3.getAngleA() << "\n";
+                std::cout << "Angle B: " << p3.getAngleB() << "\n";
+                std::cout << "Area: " << p3.calculateArea() << "\n";
+                std::cout << "Perimeter: " << p3.calculatePerimeter() << "\n";
+            }
             break;
         case 4:
             std::cout << "Exiting...\n";
