@@ -23,6 +23,13 @@ public:
     // Метод для проверки равнобедренности трапеции
     bool isIsosceles() const;
 
+    // Геттеры
+    double getBase1() const { return base1; }
+    double getBase2() const { return base2; }
+    double getHeight() const { return height; }
+    double getArea() const { return area; }
+    double getPerimeter() const { return perimeter; }
+
 private:
     // Свойства трапеции
     double base1, base2, height, diagonal1, diagonal2, angle, median;

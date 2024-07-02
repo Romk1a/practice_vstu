@@ -1,0 +1,2 @@
+/Library/Developer/CommandLineTools/usr/bin/ar qc libtrapezoid_library.a CMakeFiles/trapezoid_library.dir/trapezoid.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/ranlib libtrapezoid_library.a

@@ -1,0 +1,5 @@
+if(EXISTS "/Users/romk1a/Documents/GitHub/practice_vstu/trapezoidProject/build/tests/test_trapezoid[1]_tests.cmake")
+  include("/Users/romk1a/Documents/GitHub/practice_vstu/trapezoidProject/build/tests/test_trapezoid[1]_tests.cmake")
+else()
+  add_test(test_trapezoid_NOT_BUILT test_trapezoid_NOT_BUILT)
+endif()

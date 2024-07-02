@@ -1,4 +1,4 @@
-#include "trapezoid.h"
+#include "trapezoid.cpp"
 
 int main() {
     displayMenu();
