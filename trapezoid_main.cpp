@@ -1,9 +1,6 @@
-#include "trapezoid.cpp"
-#include <iostream>
+#include "trapezoid.h"
 
 int main() {
-    Trapezoid trapezoid;
-    trapezoid.menu();
-
+    displayMenu();
     return 0;
 }
