@@ -1,45 +1,44 @@
 #ifndef TRAPEZOID_H
 #define TRAPEZOID_H
 
-#include <array>
+#include <iostream>
 #include <cmath>
 
 class Trapezoid {
 public:
-    double a, b, c, d; // Стороны трапеции
-    double alpha, beta, gamma, delta; // Углы при основаниях
-    double height; // Высота трапеции
-    double area; // Площадь трапеции
-    double perimeter; // Периметр трапеции
-    double e, f; // Диагонали трапеции
-    double theta; // Угол между диагоналями
+    // Конструктор
+    Trapezoid();
+    
+    // Методы для задания параметров трапеции
+    bool setBasesAndHeight(double a, double b, double h);
+    bool setDiagonalsAndAngle(double d1, double d2, double angle);
+    bool setMedianAndHeight(double median, double h);
+    
+    // Метод для вычисления свойств
+    void computeProperties();
+    
+    // Метод для отображения свойств
+    void displayProperties() const;
+    
+    // Метод для проверки равнобедренности трапеции
+    bool isIsosceles() const;
 
-public:
-    Trapezoid(); // Конструктор по умолчанию
+private:
+    // Свойства трапеции
+    double base1, base2, height, diagonal1, diagonal2, angle, median;
+    double side, area, perimeter;
+    double angleA, angleB, angleC, angleD;
 
-    // Методы для установки значений
-    void setVerticesCoordinates(const std::array<double, 8>& vertices);
-    void setSides(double a, double b, double c, double d);
-    void setAngles(double angle_A, double angle_B, double angle_C, double angle_D);
-    void setSidesAndHeight(double a, double b, double height);
-    void setDiagonalsAndAngle(double diag1, double diag2, double angle);
-    void setMiddleLineAndHeight(double m, double height);
-    void calculateFromDiagonalsAndAngle(double diagonal_e, double diagonal_f, double angle_theta);
-
-    // Методы для вычисления свойств
-    void calculateProperties();
-    void calculateAnglesFromSides();
-    void calculateAreaAndPerimeter();
-
-    // Вывод свойств трапеции
-    void printProperties() const;
-
-    // Меню для взаимодействия с пользователем
-    void menu();
-    bool isValidTrapezoidBySidesAndAngles() const;
+    // Вспомогательные функции
+    void computeAngles();
+    void resetProperties();
 };
 
-// Функция проверки валидности трапеции по углам
-bool isValidTrapezoidByAngles(double angle_A, double angle_B, double angle_C, double angle_D);
+// Утилитные функции
+bool isValidNumber(double value);
+bool isPositive(double value);
+
+// Функция меню
+void displayMenu();
 
 #endif // TRAPEZOID_H
