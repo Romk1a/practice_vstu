@@ -1,6 +1,6 @@
 ﻿#include <iostream>
 #include <cmath>
-#include "parallelogram.h"
+#include "Parallelogram.h"
 
 Parallelogram::Parallelogram(double a, double b, double alpha)
     : a(a), b(b), alpha(alpha* M_PI / 180.0), beta(M_PI - alpha * M_PI / 180.0),
