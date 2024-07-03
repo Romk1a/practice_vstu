@@ -62,52 +62,52 @@ double Parallelogram::calculatePerimeter() const {
     return 2 * (a + b);
 }
 
-void showMenu() {
+void showMenu5() {
     int choice;
     double a, b, c, d, alpha, beta;
 
     do {
-        std::cout << "Choose how to create a parallelogram:\n";
-        std::cout << "1. Two sides and an angle\n";
-        std::cout << "2. Four sides\n";
-        std::cout << "3. Two angles and two sides\n";
-        std::cout << "4. Exit\n";
-        std::cout << "Enter your choice: ";
+        std::cout << "Выберите способ создания параллелограмма:\n";
+        std::cout << "1. Две стороны и угол\n";
+        std::cout << "2. Четыре стороны\n";
+        std::cout << "3. Два угла и две стороны\n";
+        std::cout << "4. Выход\n";
+        std::cout << "Введите ваш выбор: ";
         std::cin >> choice;
 
         switch (choice) {
         case 1:
-            std::cout << "Enter side A, side B, and angle A (in degrees): ";
+            std::cout << "Введите сторону A, сторону B и угол A (в градусах): ";
             std::cin >> a >> b >> alpha;
             {
                 Parallelogram p1(a, b, alpha);
-                std::cout << "Area: " << p1.calculateArea() << "\n";
-                std::cout << "Perimeter: " << p1.calculatePerimeter() << "\n";
+                std::cout << "Площадь: " << p1.calculateArea() << "\n";
+                std::cout << "Периметр: " << p1.calculatePerimeter() << "\n";
             }
             break;
         case 2:
-            std::cout << "Enter side A, side B, side C, and side D: ";
+            std::cout << "Введите сторону A, сторону B, сторону C и сторону D: ";
             std::cin >> a >> b >> c >> d;
             {
                 Parallelogram p2(a, b, c, d, 0);
-                std::cout << "Area: " << p2.calculateArea() << "\n";
-                std::cout << "Perimeter: " << p2.calculatePerimeter() << "\n";
+                std::cout << "Площадь: " << p2.calculateArea() << "\n";
+                std::cout << "Периметр: " << p2.calculatePerimeter() << "\n";
             }
             break;
         case 3:
-            std::cout << "Enter side A, side B, angle A (in degrees), and angle B (in degrees): ";
+            std::cout << "Введите сторону A, сторону B, угол A (в градусах) и угол B (в градусах): ";
             std::cin >> a >> b >> alpha >> beta;
             {
                 Parallelogram p3(alpha * M_PI / 180.0, beta * M_PI / 180.0, a, b);
-                std::cout << "Area: " << p3.calculateArea() << "\n";
-                std::cout << "Perimeter: " << p3.calculatePerimeter() << "\n";
+                std::cout << "Площадь: " << p3.calculateArea() << "\n";
+                std::cout << "Периметр: " << p3.calculatePerimeter() << "\n";
             }
             break;
         case 4:
-            std::cout << "Exiting...\n";
+            std::cout << "Выход...\n";
             break;
         default:
-            std::cout << "Invalid choice. Please try again.\n";
+            std::cout << "Неверный выбор. Попробуйте еще раз.\n";
             break;
         }
     } while (choice != 4);

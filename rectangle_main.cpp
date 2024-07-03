@@ -1,8 +1,6 @@
 #include "rectangle.cpp"
-#include <iostream>
 
 int main() {
-    Rectangle rect;
-    handleMenu(rect);
+    runMenu();
     return 0;
 }

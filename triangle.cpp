@@ -168,7 +168,7 @@ void Triangle::displayProperties() const {
     }
 }
 
-void displayMenu() {
+void displayMenu2() {
     std::cout << "Меню: Выберите способ задания треугольника\n";
     std::cout << "1. Задать координаты вершин\n";
     std::cout << "2. Задать стороны\n";
@@ -184,13 +184,13 @@ void clearInput() {
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // discard invalid input
 }
 
-void menu() {
+void menu2() {
     Triangle triangle;
     int choice;
     bool exit = false;
 
     while (!exit) {
-        displayMenu();
+        displayMenu2();
         std::cout << "Выберите опцию: ";
         std::cin >> choice;
         

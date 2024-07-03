@@ -113,3 +113,8 @@ void handleMenu(Rectangle& rect) {
         }
     }
 }
+
+void runMenu() {
+    Rectangle rect;
+    handleMenu(rect);
+}

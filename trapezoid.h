@@ -46,6 +46,6 @@ bool isValidNumber(double value);
 bool isPositive(double value);
 
 // Функция меню
-void displayMenu();
+void displayMenu4();
 
 #endif // TRAPEZOID_H

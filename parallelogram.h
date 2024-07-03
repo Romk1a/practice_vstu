@@ -27,6 +27,6 @@ private:
     double alpha, beta, gamma, delta;
 };
 
-void showMenu();
+void showMenu5();
 
 #endif // PARALLELOGRAM_H

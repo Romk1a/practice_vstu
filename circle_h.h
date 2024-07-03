@@ -1,46 +1,38 @@
 #ifndef CIRCLE_H
 #define CIRCLE_H
-
 #include <string>
+
+using namespace std;
 
 class Circle {
 private:
     double radius;
 
 public:
-    // Конструктор по радиусу
     Circle(double radius);
-    // Конструктор по диаметру
     Circle(double diameter, bool isDiameter);
-    // Конструктор по длине окружности
     Circle(double circumference, bool isCircumference, bool unused);
 
-    // Получение радиуса
     double getRadius() const;
-    // Установка радиуса
     void setRadius(double radius);
 
-    // Получение диаметра
     double getDiameter() const;
-    // Установка диаметра
     void setDiameter(double diameter);
 
-    // Получение длины окружности
     double getCircumference() const;
-    // Установка длины окружности
     void setCircumference(double circumference);
 
-    // Получение площади
     double getArea() const;
+    double calculateAreaFromRadius(double radius) const;
+    double calculateAreaFromDiameter(double diameter) const;
+    double calculateAreaFromCircumference(double circumference) const;
 
-    // Проверка пересечения с другой окружностью
     bool intersects(const Circle& other) const;
-    // Проверка на вхождение точки
     bool contains(double x, double y) const;
 };
 
-void displayMenu();
+void displayMenu1();
 double getPositiveDouble(const std::string& prompt);
-void userMenu();
+void userMenu1();
 
 #endif // CIRCLE_H

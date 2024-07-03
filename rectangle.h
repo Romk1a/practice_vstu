@@ -20,7 +20,7 @@ public:
     void setWidthAndHeight(double w, double h);
     void setWidthAndDiagonal(double w, double d);
     void setHeightAndDiagonal(double h, double d);
-    bool checkValidity() const; // Добавлено объявление метода checkValidity
+    bool checkValidity() const;
 
     // Методы для вычислений
     double area() const;
@@ -28,8 +28,6 @@ public:
     double diagonal() const;
 };
 
-void displayMenu();
-void handleMenu(Rectangle& rect);
+void runMenu();
 
 #endif // RECTANGLE_H
-#pragma once

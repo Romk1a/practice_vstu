@@ -1,6 +1,6 @@
 #include "trapezoid.cpp"
 
 int main() {
-    displayMenu();
+    displayMenu4();
     return 0;
 }

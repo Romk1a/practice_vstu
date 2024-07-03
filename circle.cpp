@@ -6,7 +6,7 @@
 
 using namespace std;
 
-const double PI = 3.141592653589793;
+const double Pi = 3.141592653589793;
 
 Circle::Circle(double radius) {
     if (radius <= 0) throw std::invalid_argument("Radius must be positive.");
@@ -20,7 +20,7 @@ Circle::Circle(double diameter, bool isDiameter) {
 
 Circle::Circle(double circumference, bool isCircumference, bool unused) {
     if (circumference <= 0) throw std::invalid_argument("Circumference must be positive.");
-    this->radius = circumference / (2 * PI);
+    this->radius = circumference / (2 * Pi);
 }
 
 double Circle::getRadius() const {
@@ -42,16 +42,33 @@ void Circle::setDiameter(double diameter) {
 }
 
 double Circle::getCircumference() const {
-    return 2 * PI * radius;
+    return 2 * Pi * radius;
 }
 
 void Circle::setCircumference(double circumference) {
     if (circumference <= 0) throw std::invalid_argument("Circumference must be positive.");
-    this->radius = circumference / (2 * PI);
+    this->radius = circumference / (2 * Pi);
 }
 
 double Circle::getArea() const {
-    return PI * radius * radius;
+    return Pi * radius * radius;
+}
+
+double Circle::calculateAreaFromRadius(double radius) const {
+    if (radius <= 0) throw std::invalid_argument("Radius must be positive.");
+    return Pi * radius * radius;
+}
+
+double Circle::calculateAreaFromDiameter(double diameter) const {
+    if (diameter <= 0) throw std::invalid_argument("Diameter must be positive.");
+    double radius = diameter / 2.0;
+    return Pi * radius * radius;
+}
+
+double Circle::calculateAreaFromCircumference(double circumference) const {
+    if (circumference <= 0) throw std::invalid_argument("Circumference must be positive.");
+    double radius = circumference / (2 * Pi);
+    return Pi * radius * radius;
 }
 
 bool Circle::intersects(const Circle& other) const {
@@ -64,19 +81,20 @@ bool Circle::contains(double x, double y) const {
     return distance <= radius;
 }
 
-void displayMenu() {
-    cout << "¬˚·ÂËÚÂ ÓÔÂ‡ˆË˛:" << endl;
-    cout << "1. «‡‰‡Ú¸ ÓÍÛÊÌÓÒÚ¸ ÔÓ ‡‰ËÛÒÛ" << endl;
-    cout << "2. «‡‰‡Ú¸ ÓÍÛÊÌÓÒÚ¸ ÔÓ ‰Ë‡ÏÂÚÛ" << endl;
-    cout << "3. «‡‰‡Ú¸ ÓÍÛÊÌÓÒÚ¸ ÔÓ ‰ÎËÌÂ ÓÍÛÊÌÓÒÚË" << endl;
-    cout << "4. »ÁÏÂÌËÚ¸ ‡‰ËÛÒ ÓÍÛÊÌÓÒÚË" << endl;
-    cout << "5. »ÁÏÂÌËÚ¸ ‰Ë‡ÏÂÚ ÓÍÛÊÌÓÒÚË" << endl;
-    cout << "6. »ÁÏÂÌËÚ¸ ‰ÎËÌÛ ÓÍÛÊÌÓÒÚË" << endl;
-    cout << "7. œÓ‚ÂËÚ¸ ÔÂÂÒÂ˜ÂÌËÂ Ò ‰Û„ÓÈ ÓÍÛÊÌÓÒÚ¸˛" << endl;
-    cout << "8. œÓ‚ÂËÚ¸, ÎÂÊËÚ ÎË ÚÓ˜Í‡ ‚ÌÛÚË ÓÍÛÊÌÓÒÚË" << endl;
-    cout << "9. ¬˚‚ÂÒÚË Ô‡‡ÏÂÚ˚ ÓÍÛÊÌÓÒÚË" << endl;
-    cout << "0. ¬˚ıÓ‰" << endl;
-    cout << "¬‚Â‰ËÚÂ ÓÔÂ‡ˆË˛: "; 
+void displayMenu1() {
+    cout << "–í—ã–±–µ—Ä–∏—Ç–µ –æ–ø–µ—Ä–∞—Ü–∏—é:" << endl;
+    cout << "1. –ó–∞–¥–∞—Ç—å –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å –ø–æ —Ä–∞–¥–∏—É—Å—É" << endl;
+    cout << "2. –ó–∞–¥–∞—Ç—å –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å –ø–æ –¥–∏–∞–º–µ—Ç—Ä—É" << endl;
+    cout << "3. –ó–∞–¥–∞—Ç—å –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å –ø–æ –¥–ª–∏–Ω–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏" << endl;
+    cout << "4. –ò–∑–º–µ–Ω–∏—Ç—å —Ä–∞–¥–∏—É—Å –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏" << endl;
+    cout << "5. –ò–∑–º–µ–Ω–∏—Ç—å –¥–∏–∞–º–µ—Ç—Ä –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏" << endl;
+    cout << "6. –ò–∑–º–µ–Ω–∏—Ç—å –¥–ª–∏–Ω—É –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏" << endl;
+    cout << "7. –ü—Ä–æ–≤–µ—Ä–∏—Ç—å –ø–µ—Ä–µ—Å–µ—á–µ–Ω–∏–µ —Å –¥—Ä—É–≥–æ–π –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å—é" << endl;
+    cout << "8. –ü—Ä–æ–≤–µ—Ä–∏—Ç—å, –ª–µ–∂–∏—Ç –ª–∏ —Ç–æ—á–∫–∞ –≤–Ω—É—Ç—Ä–∏ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏" << endl;
+    cout << "9. –í—ã–≤–µ—Å—Ç–∏ –ø–∞—Ä–∞–º–µ—Ç—Ä—ã –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏" << endl;
+    cout << "10. –í—ã—á–∏—Å–ª–∏—Ç—å –ø–ª–æ—â–∞–¥—å –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏" << endl;
+    cout << "0. –í—ã—Ö–æ–¥" << endl;
+    cout << "–í–≤–µ–¥–∏—Ç–µ –æ–ø–µ—Ä–∞—Ü–∏—é: "; 
 }
 
 double getPositiveDouble(const std::string& prompt) {
@@ -87,7 +105,7 @@ double getPositiveDouble(const std::string& prompt) {
         if (cin.fail() || value <= 0) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Œ¯Ë·Í‡: ‚‚Â‰ËÚÂ ÔÓÎÓÊËÚÂÎ¸ÌÓÂ ˜ËÒÎÓ.\n";
+            cout << "–û—à–∏–±–∫–∞: –≤–≤–µ–¥–∏—Ç–µ –ø–æ–ª–æ–∂–∏—Ç–µ–ª—å–Ω–æ–µ —á–∏—Å–ª–æ.\n";
         } else {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             return value;
@@ -95,102 +113,132 @@ double getPositiveDouble(const std::string& prompt) {
     }
 }
 
-void userMenu() {
+void userMenu1() {
     int choice;
     Circle* circle = nullptr;
 
     while (true) {
-        displayMenu();
+        displayMenu1();
         cin >> choice;
-        if (cin.fail() || choice < 0 || choice > 9) {
+        if (cin.fail() || choice < 0 || choice > 10) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Œ¯Ë·Í‡: ‚‚Â‰ËÚÂ ‰ÓÔÛÒÚËÏ˚È ÌÓÏÂ ÓÔÂ‡ˆËË (0-9).\n";
+            cout << "–û—à–∏–±–∫–∞: –≤–≤–µ–¥–∏—Ç–µ –¥–æ–ø—É—Å—Ç–∏–º—ã–π –Ω–æ–º–µ—Ä –æ–ø–µ—Ä–∞—Ü–∏–∏ (0-10).\n";
             continue;
         }
 
-        if (choice == 0) break;
-
-        try {
+        if (choice == 0) break;try {
             switch (choice) {
                 case 1: {
-                    double radius = getPositiveDouble("¬‚Â‰ËÚÂ ‡‰ËÛÒ: ");
+                    double radius = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ —Ä–∞–¥–∏—É—Å: ");
                     circle = new Circle(radius);
                     break;
                 }
                 case 2: {
-                    double diameter = getPositiveDouble("¬‚Â‰ËÚÂ ‰Ë‡ÏÂÚ: ");
+                    double diameter = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –¥–∏–∞–º–µ—Ç—Ä: ");
                     circle = new Circle(diameter, true);
                     break;
                 }
                 case 3: {
-                    double circumference = getPositiveDouble("¬‚Â‰ËÚÂ ‰ÎËÌÛ ÓÍÛÊÌÓÒÚË: ");
+                    double circumference = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –¥–ª–∏–Ω—É –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏: ");
                     circle = new Circle(circumference, true, true);
                     break;
                 }
                 case 4: {
                     if (circle) {
-                        double radius = getPositiveDouble("¬‚Â‰ËÚÂ ÌÓ‚˚È ‡‰ËÛÒ: ");
+                        double radius = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π —Ä–∞–¥–∏—É—Å: ");
                         circle->setRadius(radius);
                     } else {
-                        cout << "—Ì‡˜‡Î‡ ÒÓÁ‰‡ÈÚÂ ÓÍÛÊÌÓÒÚ¸.\n";
+                        cout << "–°–Ω–∞—á–∞–ª–∞ —Å–æ–∑–¥–∞–π—Ç–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å.\n";
                     }
                     break;
                 }
                 case 5: {
                     if (circle) {
-                        double diameter = getPositiveDouble("¬‚Â‰ËÚÂ ÌÓ‚˚È ‰Ë‡ÏÂÚ: ");
+                        double diameter = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—ã–π –¥–∏–∞–º–µ—Ç—Ä: ");
                         circle->setDiameter(diameter);
                     } else {
-                        cout << "—Ì‡˜‡Î‡ ÒÓÁ‰‡ÈÚÂ ÓÍÛÊÌÓÒÚ¸.\n";
+                        cout << "–°–Ω–∞—á–∞–ª–∞ —Å–æ–∑–¥–∞–π—Ç–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å.\n";
                     }
                     break;
                 }
                 case 6: {
                     if (circle) {
-                        double circumference = getPositiveDouble("¬‚Â‰ËÚÂ ÌÓ‚Û˛ ‰ÎËÌÛ ÓÍÛÊÌÓÒÚË: ");
+                        double circumference = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –Ω–æ–≤—É—é –¥–ª–∏–Ω—É –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏: ");
                         circle->setCircumference(circumference);
                     } else {
-                        cout << "—Ì‡˜‡Î‡ ÒÓÁ‰‡ÈÚÂ ÓÍÛÊÌÓÒÚ¸.\n";
+                        cout << "–°–Ω–∞—á–∞–ª–∞ —Å–æ–∑–¥–∞–π—Ç–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å.\n";
                     }
                     break;
                 }
                 case 7: {
                     if (circle) {
-                        double otherRadius = getPositiveDouble("¬‚Â‰ËÚÂ ‡‰ËÛÒ ‰Û„ÓÈ ÓÍÛÊÌÓÒÚË: ");
+                        double otherRadius = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ —Ä–∞–¥–∏—É—Å –¥—Ä—É–≥–æ–π –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏: ");
                         Circle otherCircle(otherRadius);
                         bool intersects = circle->intersects(otherCircle);
-                        cout << "ŒÍÛÊÌÓÒÚË " << (intersects ? "ÔÂÂÒÂÍ‡˛ÚÒˇ" : "ÌÂ ÔÂÂÒÂÍ‡˛ÚÒˇ") << ".\n";
+                        cout << "–û–∫—Ä—É–∂–Ω–æ—Å—Ç–∏ " << (intersects ? "–ø–µ—Ä–µ—Å–µ–∫–∞—é—Ç—Å—è" : "–Ω–µ –ø–µ—Ä–µ—Å–µ–∫–∞—é—Ç—Å—è") << ".\n";
                     } else {
-                        cout << "—Ì‡˜‡Î‡ ÒÓÁ‰‡ÈÚÂ ÓÍÛÊÌÓÒÚ¸.\n";
+                        cout << "–°–Ω–∞—á–∞–ª–∞ —Å–æ–∑–¥–∞–π—Ç–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å.\n";
                     }
                     break;
                 }
                 case 8: {
                     if (circle) {
-                        double x = getPositiveDouble("¬‚Â‰ËÚÂ ÍÓÓ‰ËÌ‡ÚÛ x: ");
-                        double y = getPositiveDouble("¬‚Â‰ËÚÂ ÍÓÓ‰ËÌ‡ÚÛ y: ");
+                        double x = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –∫–æ–æ—Ä–¥–∏–Ω–∞—Ç—É x: ");
+                        double y = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –∫–æ–æ—Ä–¥–∏–Ω–∞—Ç—É y: ");
                         bool contains = circle->contains(x, y);
-                        cout << "“Ó˜Í‡ " << (contains ? "ÎÂÊËÚ" : "ÌÂ ÎÂÊËÚ") << " ‚ÌÛÚË ÓÍÛÊÌÓÒÚË.\n";
+                        cout << "–¢–æ—á–∫–∞ " << (contains ? "–ª–µ–∂–∏—Ç" : "–Ω–µ –ª–µ–∂–∏—Ç") << " –≤–Ω—É—Ç—Ä–∏ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏.\n";
                     } else {
-                        cout << "—Ì‡˜‡Î‡ ÒÓÁ‰‡ÈÚÂ ÓÍÛÊÌÓÒÚ¸.\n";
+                        cout << "–°–Ω–∞—á–∞–ª–∞ —Å–æ–∑–¥–∞–π—Ç–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å.\n";
                     }
                     break;
                 }
                 case 9: {
                     if (circle) {
-                        cout << "–‡‰ËÛÒ: " << circle->getRadius() << "\n";
-                        cout << "ƒË‡ÏÂÚ: " << circle->getDiameter() << "\n";
-                        cout << "ƒÎËÌ‡ ÓÍÛÊÌÓÒÚË: " << circle->getCircumference() << "\n";
-                        cout << "œÎÓ˘‡‰¸: " << circle->getArea() << "\n";
+                        cout << "–†–∞–¥–∏—É—Å: " << circle->getRadius() << "\n";
+                        cout << "–î–∏–∞–º–µ—Ç—Ä: " << circle->getDiameter() << "\n";
+                        cout << "–î–ª–∏–Ω–∞ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏: " << circle->getCircumference() << "\n";
+                        cout << "–ü–ª–æ—â–∞–¥—å: " << circle->getArea() << "\n";
                     } else {
-                        cout << "—Ì‡˜‡Î‡ ÒÓÁ‰‡ÈÚÂ ÓÍÛÊÌÓÒÚ¸.\n";
+                        cout << "–°–Ω–∞—á–∞–ª–∞ —Å–æ–∑–¥–∞–π—Ç–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å.\n";
+                    }
+                    break;
+                }
+                case 10: {
+                    if (circle) {
+                        int subChoice;
+                        cout << "–í—ã—á–∏—Å–ª–∏—Ç—å –ø–ª–æ—â–∞–¥—å —á–µ—Ä–µ–∑:\n";
+                        cout << "1. –†–∞–¥–∏—É—Å\n";
+                        cout << "2. –î–∏–∞–º–µ—Ç—Ä\n";
+                        cout << "3. –î–ª–∏–Ω—É –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏\n";
+                        cout << "–í–≤–µ–¥–∏—Ç–µ –æ–ø–µ—Ä–∞—Ü–∏—é: ";
+                        cin >> subChoice;switch (subChoice) {
+                            case 1: {
+                                double radius = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ —Ä–∞–¥–∏—É—Å: ");
+                                cout << "–ü–ª–æ—â–∞–¥—å: " << circle->calculateAreaFromRadius(radius) << "\n";
+                                break;
+                            }
+                            case 2: {
+                                double diameter = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –¥–∏–∞–º–µ—Ç—Ä: ");
+                                cout << "–ü–ª–æ—â–∞–¥—å: " << circle->calculateAreaFromDiameter(diameter) << "\n";
+                                break;
+                            }
+                            case 3: {
+                                double circumference = getPositiveDouble("–í–≤–µ–¥–∏—Ç–µ –¥–ª–∏–Ω—É –æ–∫—Ä—É–∂–Ω–æ—Å—Ç–∏: ");
+                                cout << "–ü–ª–æ—â–∞–¥—å: " << circle->calculateAreaFromCircumference(circumference) << "\n";
+                                break;
+                            }
+                            default:
+                                cout << "–û—à–∏–±–∫–∞: –≤–≤–µ–¥–∏—Ç–µ –¥–æ–ø—É—Å—Ç–∏–º—ã–π –Ω–æ–º–µ—Ä –æ–ø–µ—Ä–∞—Ü–∏–∏ (1-3).\n";
+                        }
+                    } else {
+                        cout << "–°–Ω–∞—á–∞–ª–∞ —Å–æ–∑–¥–∞–π—Ç–µ –æ–∫—Ä—É–∂–Ω–æ—Å—Ç—å.\n";
                     }
                     break;
                 }
             }
         } catch (const std::invalid_argument& e) {
-            cout << "Œ¯Ë·Í‡: " << e.what() << "\n";
+            cout << "–û—à–∏–±–∫–∞: " << e.what() << "\n";
             continue;
         }
     }

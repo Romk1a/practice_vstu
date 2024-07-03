@@ -1,6 +1,6 @@
 #include "parallelogram.cpp"
 
 int main() {
-    showMenu();
+    showMenu5();
     return 0;
 }

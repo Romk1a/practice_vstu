@@ -110,7 +110,7 @@ bool isPositive(double value) {
 }
 
 // Функция меню
-void displayMenu() {
+void displayMenu4() {
     Trapezoid trapezoid;
     int choice = 0;
     double a, b, h, d1, d2, ang, m;

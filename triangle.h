@@ -38,6 +38,6 @@ public:
     bool isValidAngle(double angle) const;
 };
 
-void menu();
+void menu2();
 
 #endif // TRIANGLE_H

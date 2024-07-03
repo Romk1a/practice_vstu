@@ -1,6 +1,6 @@
 #include "triangle.cpp"
 
 int main() {
-    menu();
+    menu2();
     return 0;
 }
